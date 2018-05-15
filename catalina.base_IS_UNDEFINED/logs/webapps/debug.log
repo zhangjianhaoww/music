@@ -1,0 +1,59 @@
+2018-05-15 15:59:08 665 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT song_id, song_name, atrist, album, price FROM song 
+2018-05-15 15:59:08 720 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 
+2018-05-15 15:59:55 449 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT song_id, song_name, atrist, album, price FROM song 
+2018-05-15 15:59:55 485 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 
+2018-05-15 15:59:55 506 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1
+2018-05-15 16:04:25 249 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT song_id, song_name, atrist, album, price FROM song 
+2018-05-15 16:04:25 280 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 
+2018-05-15 16:04:25 306 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1
+2018-05-15 16:17:11 587 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==>  Preparing: INSERT INTO song ( song_name, atrist, album, price) values (?, ?, ?, ?) 
+2018-05-15 16:17:11 676 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==> Parameters: 东风破(String), 周杰伦(String), 梦游记(String), 4.0(Double)
+2018-05-15 16:17:11 685 [main] DEBUG tech.bilian.dao.SongDao.insertSong-<==    Updates: 1
+2018-05-15 16:17:25 718 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT song_id, song_name, atrist, album, price FROM song 
+2018-05-15 16:17:25 768 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 
+2018-05-15 16:17:25 801 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 2
+2018-05-15 16:22:50 785 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==>  Preparing: INSERT INTO song ( song_name, atrist, album, price) values (?, ?, ?, ?) 
+2018-05-15 16:22:50 840 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==> Parameters: 东风破(String), 周杰伦(String), 梦游记(String), 4.0(Double)
+2018-05-15 16:23:20 602 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==>  Preparing: INSERT INTO song ( song_name, atrist, album, price) values (?, ?, ?, ?) 
+2018-05-15 16:23:20 655 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==> Parameters: 东风破2(String), 周杰伦(String), 梦游记(String), 4.0(Double)
+2018-05-15 16:23:20 661 [main] DEBUG tech.bilian.dao.SongDao.insertSong-<==    Updates: 1
+2018-05-15 16:23:20 666 [main] DEBUG tech.bilian.dao.SongDao.deleteSong-==>  Preparing: DELETE FROM song where song_id = songId 
+2018-05-15 16:23:20 667 [main] DEBUG tech.bilian.dao.SongDao.deleteSong-==> Parameters: 
+2018-05-15 16:23:56 362 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==>  Preparing: INSERT INTO song ( song_name, atrist, album, price) values (?, ?, ?, ?) 
+2018-05-15 16:23:56 414 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==> Parameters: 东风破2(String), 周杰伦(String), 梦游记(String), 4.0(Double)
+2018-05-15 16:24:22 475 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==>  Preparing: INSERT INTO song ( song_name, atrist, album, price) values (?, ?, ?, ?) 
+2018-05-15 16:24:22 519 [main] DEBUG tech.bilian.dao.SongDao.insertSong-==> Parameters: 东风破3(String), 周杰伦(String), 梦游记(String), 4.0(Double)
+2018-05-15 16:24:22 525 [main] DEBUG tech.bilian.dao.SongDao.insertSong-<==    Updates: 1
+2018-05-15 16:24:22 528 [main] DEBUG tech.bilian.dao.SongDao.deleteSong-==>  Preparing: DELETE FROM song where song_id = ? 
+2018-05-15 16:24:22 529 [main] DEBUG tech.bilian.dao.SongDao.deleteSong-==> Parameters: 2(Long)
+2018-05-15 16:24:22 533 [main] DEBUG tech.bilian.dao.SongDao.deleteSong-<==    Updates: 1
+2018-05-15 16:52:28 243 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-==>  Preparing: insert into power(song_id, user_id, time) values (?, ?, ?) 
+2018-05-15 16:52:28 295 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-==> Parameters: 1(Long), 1(Long), 2018-05-15 16:52:27.747(Timestamp)
+2018-05-15 16:52:28 301 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-<==    Updates: 1
+2018-05-15 16:54:25 817 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-==>  Preparing: insert into power(song_id, user_id, time) values (?, ?, ?) 
+2018-05-15 16:54:25 883 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-==> Parameters: 1(Long), 1(Long), 2018-05-15 16:54:25.337(Timestamp)
+2018-05-15 16:54:25 890 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-<==    Updates: 1
+2018-05-15 16:54:25 938 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==>  Preparing: select power_id, song_id, user_id, time from power 
+2018-05-15 16:54:25 939 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==> Parameters: 
+2018-05-15 16:54:25 966 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-<==      Total: 2
+2018-05-15 16:59:29 250 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-==>  Preparing: insert into power(song_id, user_id, time) values (?, ?, ?) 
+2018-05-15 16:59:29 285 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-==> Parameters: 1(Long), 1(Long), 2018-05-15 16:59:28.86(Timestamp)
+2018-05-15 16:59:29 291 [main] DEBUG tech.bilian.dao.PowerDao.insertPower-<==    Updates: 1
+2018-05-15 16:59:29 330 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==>  Preparing: select song_id, user_id, time from power 
+2018-05-15 16:59:29 331 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==> Parameters: 
+2018-05-15 16:59:29 350 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-<==      Total: 1
+2018-05-15 17:29:18 199 [main] DEBUG tech.bilian.dao.HistoryDao.insertHistory-==>  Preparing: insert into history (user_id, song_id, song_name, time, state) values (?, ?, ?, ?, ?) 
+2018-05-15 17:29:18 248 [main] DEBUG tech.bilian.dao.HistoryDao.insertHistory-==> Parameters: 1(Long), 1(Long), 东风破(String), null, 0(Integer)
+2018-05-15 17:29:18 254 [main] DEBUG tech.bilian.dao.HistoryDao.insertHistory-<==    Updates: 1
+2018-05-15 17:33:57 642 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==>  Preparing: select history_id, user_id, song_id, song_name, time, state from history 
+2018-05-15 17:33:57 675 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==> Parameters: 
+2018-05-15 17:33:57 705 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-<==      Total: 1
+2018-05-15 17:37:01 070 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==>  Preparing: select history_id, user_id, song_id, song_name, time, state from history WHERE user_id = ? and state = ? 
+2018-05-15 17:37:01 115 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==> Parameters: 1(Long), 0(Integer)
+2018-05-15 17:37:01 141 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-<==      Total: 1
+2018-05-15 17:57:54 646 [main] DEBUG tech.bilian.dao.HistoryDao.insertHistory-==>  Preparing: insert into history (user_id, song_id, song_name, time, state) values (?, ?, ?, ?, ?) 
+2018-05-15 17:57:54 705 [main] DEBUG tech.bilian.dao.HistoryDao.insertHistory-==> Parameters: 1(Long), 1(Long), 东风破(String), 2018-05-15 17:57:54.135(Timestamp), 0(Integer)
+2018-05-15 17:57:54 710 [main] DEBUG tech.bilian.dao.HistoryDao.insertHistory-<==    Updates: 1
+2018-05-15 18:00:23 237 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==>  Preparing: select history_id, user_id, song_id, song_name, time, state from history 
+2018-05-15 18:00:23 277 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==> Parameters: 
+2018-05-15 18:00:23 305 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-<==      Total: 2
