@@ -14,6 +14,8 @@ public class Power {
 
     private Date time;
 
+    private String  songName;
+
 //    public Long getPowerId() {
 //        return powerId;
 //    }
@@ -44,5 +46,13 @@ public class Power {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public String getSongName() {
+        return songName;
+    }
+
+    public void setSongName(String songName) {
+        this.songName = songName;
     }
 }

@@ -22,5 +22,5 @@ public interface SongDao {
     int insertSong(@Param("song")Song song);
 
 
-    int deleteSong(Long songId);
+    int deleteSong(String songName);
 }

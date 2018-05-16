@@ -68,7 +68,8 @@
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/songs"/>
         <property name="username" value="root"/>
-        <property name="password" value="xiaowan"/>
+        <!--property name="password" value="xiaowan"/-->
+        <property name="password" value="XIAOwan12345!"/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

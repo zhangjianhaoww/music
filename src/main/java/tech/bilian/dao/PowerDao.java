@@ -11,4 +11,7 @@ public interface PowerDao {
 
 
     int insertPower(@Param("power")Power power);
+
+
+    int deletePower(@Param("power")Power power);
 }

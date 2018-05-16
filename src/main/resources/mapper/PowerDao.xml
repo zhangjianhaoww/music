@@ -4,31 +4,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tech.bilian.dao.PowerDao">
     <select id="queryPower" parameterType="tech.bilian.pojo.Power" resultType="tech.bilian.pojo.Power">
-        select  song_id, user_id, time
+        select  song_id, user_id, time, song_name
 
         from power
 
         <where>
 
-            <if test="power!=null and power.songId!=null and power.userId==null">
+            <if test="power!=null and power.songId!=null">
                 and song_id = #{power.songId}
             </if>
 
-            <if test="power!=null and power.songId==null and power.userId!=null">
+            <if test="power!=null and power.userId!=null">
                 and user_id = #{power.userId}
             </if>
 
-            <if test="power!=null and power.songId!=null and power.userId!=null">
-                and song_id = #{power.songId}
-                and user_id = #{power.userId}
+            <if test="power!=null and power.songName != null">
+                and song_name = #{power.songName}
             </if>
         </where>
     </select>
 
     <insert id="insertPower" parameterType="tech.bilian.pojo.Power">
-        insert into power(song_id, user_id, time)
+        insert into power(song_id, user_id, time, song_name)
 
-        values (#{power.songId}, #{power.userId}, #{power.time})
+        values (#{power.songId}, #{power.userId}, #{power.time}, #{power.songName})
     </insert>
+
+    <delete id="deletePower" parameterType="tech.bilian.pojo.Power">
+        delete from power
+
+        where song_name = #{power.songName} and user_id = #{power.userId}
+    </delete>
 
 </mapper>

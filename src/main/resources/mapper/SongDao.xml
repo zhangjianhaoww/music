@@ -13,6 +13,9 @@
             <if test="song != null and song.songId != null">
                 AND song_id = #{song.songId}
             </if>
+            <if test="song != null and song.songName != null">
+                and song_name = #{song.songName}
+            </if>
         </where>
 
     </select>
@@ -26,7 +29,7 @@
     <delete id="deleteSong" parameterType="Long">
         DELETE FROM song
 
-        where song_id = #{songId}
+        where song_name = #{songName}
     </delete>
 
 </mapper>

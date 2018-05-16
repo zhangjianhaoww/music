@@ -12,7 +12,7 @@ public class History {
 
     private String songName;
 
-    private int state;
+    private Integer state;
 
 
     private Date time;
@@ -57,11 +57,11 @@ public class History {
         this.time = time;
     }
 
-    public int getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 }

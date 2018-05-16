@@ -17,7 +17,9 @@ public class SongDaoTest extends BaseTest {
 
     @Test
     public void querySongTest(){
-        List<Song> songs = songDao.querySong(null);
+        Song song = new Song();
+        song.setSongName("稳稳地幸福");
+        List<Song> songs = songDao.querySong(song);
 
         System.out.println(songs.size());
     }
@@ -33,8 +35,7 @@ public class SongDaoTest extends BaseTest {
         int result = songDao.insertSong(song);
         System.out.println(result);
 
-        result = songDao.deleteSong(2l);
-        System.out.println(result);
+
     }
 
 }
