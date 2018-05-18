@@ -72,8 +72,17 @@ public class HistoryServiceImpl implements HistoryService {
             return new Execution<>(-2, "插入数据库失败");
 
         }
+        switch (history.getState()){
+            case 0:
+                return new Execution<>(1, "该歌曲并未授权");
+            case 1:
+                return new Execution<>(2, "该歌曲以授权");
+            case 2:
+                return new Execution<>(3, "该歌曲不在监听范围内");
+            default:
+                return new Execution<>(1, "插入成功");
+        }
 
-        return new Execution<>(1, "插入成功");
     }
 
 

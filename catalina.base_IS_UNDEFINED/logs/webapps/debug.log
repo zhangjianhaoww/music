@@ -1,6 +1,9 @@
-2018-05-16 11:41:02 171 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT song_id, song_name, atrist, album, price FROM song 
-2018-05-16 11:41:02 231 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 
-2018-05-16 11:41:02 275 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 3
-2018-05-16 11:42:59 706 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT song_id, song_name, atrist, album, price FROM song WHERE song_name = ? 
-2018-05-16 11:42:59 748 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 稳稳地幸福(String)
-2018-05-16 11:42:59 771 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 0
+2018-05-18 15:28:52 020 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==>  Preparing: insert into shangjia (master, shangjia_name) values (?, ?) 
+2018-05-18 15:28:52 103 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==> Parameters: null, 江苏省徐州市某某街第一家咖啡馆(String)
+2018-05-18 15:28:52 109 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-<==    Updates: 1
+2018-05-18 15:29:32 844 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==>  Preparing: insert into shangjia (master, shangjia_name) values (?, ?) 
+2018-05-18 15:29:32 902 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==> Parameters: null, 江苏省徐州市某某街第二家咖啡馆(String)
+2018-05-18 15:29:32 913 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-<==    Updates: 1
+2018-05-18 15:29:43 543 [main] DEBUG tech.bilian.dao.ShangjiaDao.queryShangjia-==>  Preparing: select shangjia_id, master, shangjia_name from shangjia 
+2018-05-18 15:29:43 610 [main] DEBUG tech.bilian.dao.ShangjiaDao.queryShangjia-==> Parameters: 
+2018-05-18 15:29:43 647 [main] DEBUG tech.bilian.dao.ShangjiaDao.queryShangjia-<==      Total: 2

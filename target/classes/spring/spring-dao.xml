@@ -64,13 +64,25 @@
     </bean>
     -->
 
-    <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
+    <!--bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/songs"/>
         <property name="username" value="root"/>
-        <!--property name="password" value="xiaowan"/-->
-        <property name="password" value="XIAOwan12345!"/>
+        //<property name="password" value="xiaowan"/>
+        <property name="password" value="xiaowan"/>
+    </bean-->
+
+
+    <bean id="dataSource" parent="abstractDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="${jdbc_url}"/>
+        <property name="user" value="root"/>
+        <property name="password" value="xiaowan"/>
     </bean>
+
+
+
+
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="classpath:mybatis-config.xml"/>

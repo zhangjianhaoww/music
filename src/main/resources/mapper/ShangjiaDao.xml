@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.bilian.dao.ShangjiaDao">
+    <select id="queryShangjia" parameterType="tech.bilian.pojo.Shangjia" resultType="tech.bilian.pojo.Shangjia">
+        select shangjia_id, master, shangjia_name
+
+        from shangjia
+
+        <where>
+            <if test="shangjia!=null and shangjia.shangjiaId!=null">
+                and shangjia_id = #{shangjia.shangjiaId}
+            </if>
+            <if test="shangjia!=null and shangjia.master!=null">
+                and master = #{shangjia.master}
+            </if>
+            <if test="shangjia!=null and shangjia.shangjiaName!=null">
+                and shangjia_name = #{shangjia.shangjiaName}
+            </if>
+
+        </where>
+    </select>
+
+    <insert id="insertShangjia" parameterType="tech.bilian.pojo.Shangjia">
+        insert into shangjia (master, shangjia_name)
+
+        values (#{shangjia.master}, #{shangjia.shangjiaName})
+    </insert>
+</mapper>
