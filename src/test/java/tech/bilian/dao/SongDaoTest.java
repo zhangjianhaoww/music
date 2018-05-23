@@ -18,19 +18,17 @@ public class SongDaoTest extends BaseTest {
     @Test
     public void querySongTest(){
         Song song = new Song();
-        song.setSongName("稳稳地幸福");
+        song.setSongName("东风破-周杰伦");
         List<Song> songs = songDao.querySong(song);
 
-        System.out.println(songs.size());
+        System.out.println(songs.get(0).getOwnerName());
     }
 
     @Test
     public void insertSongTest(){
         Song song = new Song();
-        song.setSongName("东风破3");
-        song.setArtist("周杰伦");
-        song.setPrice(4.0);
-        song.setAlbum("梦游记");
+        song.setSongName("东风破-周杰伦");
+        song.setOwnerId(1l);
 
         int result = songDao.insertSong(song);
         System.out.println(result);

@@ -5,12 +5,18 @@ public class Song {
 
    private String songName;
 
-   private String artist;
+   private Long ownerId;
 
-   private String album;
+   private String ownerName;
 
-   private Double price;
 
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
 
     public Long getSongId() {
         return songId;
@@ -28,27 +34,11 @@ public class Song {
         this.songName = songName;
     }
 
-    public String getArtist() {
-        return artist;
+    public Long getOwnerId() {
+        return ownerId;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
-
-    public String getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(String album) {
-        this.album = album;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setOwnerId(Long owner) {
+        this.ownerId = owner;
     }
 }

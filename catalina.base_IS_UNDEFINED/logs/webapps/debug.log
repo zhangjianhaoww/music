@@ -1,9 +1,9 @@
-2018-05-18 15:28:52 020 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==>  Preparing: insert into shangjia (master, shangjia_name) values (?, ?) 
-2018-05-18 15:28:52 103 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==> Parameters: null, 江苏省徐州市某某街第一家咖啡馆(String)
-2018-05-18 15:28:52 109 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-<==    Updates: 1
-2018-05-18 15:29:32 844 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==>  Preparing: insert into shangjia (master, shangjia_name) values (?, ?) 
-2018-05-18 15:29:32 902 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-==> Parameters: null, 江苏省徐州市某某街第二家咖啡馆(String)
-2018-05-18 15:29:32 913 [main] DEBUG tech.bilian.dao.ShangjiaDao.insertShangjia-<==    Updates: 1
-2018-05-18 15:29:43 543 [main] DEBUG tech.bilian.dao.ShangjiaDao.queryShangjia-==>  Preparing: select shangjia_id, master, shangjia_name from shangjia 
-2018-05-18 15:29:43 610 [main] DEBUG tech.bilian.dao.ShangjiaDao.queryShangjia-==> Parameters: 
-2018-05-18 15:29:43 647 [main] DEBUG tech.bilian.dao.ShangjiaDao.queryShangjia-<==      Total: 2
+2018-05-23 21:24:11 483 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT s.song_id as song_id, s.song_name as song_name, s.owner as owner_id, o.owner_name as owner_name FROM song s, owner o WHERE s.owner = o.owner_id and song_name = ? 
+2018-05-23 21:24:11 543 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 东风破-周杰伦(String)
+2018-05-23 21:24:11 588 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1
+2018-05-23 21:26:16 178 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT s.song_id as song_id, s.song_name as song_name, s.owner as owner_id, o.owner_name as owner_name FROM song s, owner o WHERE s.owner = o.owner_id and song_name = ? 
+2018-05-23 21:26:16 251 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 东风破-周杰伦(String)
+2018-05-23 21:26:16 279 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1
+2018-05-23 21:38:12 399 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT s.song_id as song_id, s.song_name as song_name, s.owner as owner_id, o.owner_name as owner_name FROM song s, owner o WHERE s.owner = o.owner_id and song_name = ? 
+2018-05-23 21:38:12 456 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 东风破-周杰伦(String)
+2018-05-23 21:38:12 503 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1

@@ -26,6 +26,7 @@
         <!--property name="checkoutTimeout" value="1000"/-->
         <!-- 当获取链接失败重试次数 -->
         <property name="acquireRetryAttempts" value="2"/>
+
     </bean>
 
     <bean id="master" parent="abstractDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">

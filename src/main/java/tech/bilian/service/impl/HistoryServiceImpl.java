@@ -45,7 +45,7 @@ public class HistoryServiceImpl implements HistoryService {
         song.setSongName(history.getSongName());
         List<Song> songs = songDao.querySong(song);
         //需要授权时查询该用户是否授权
-        if (songs.size()>0 && songs.get(0).getPrice()>0){
+        if (songs.size()>0){
             Power power = new Power();
             power.setSongName(history.getSongName());
             power.setUserId(history.getUserId());

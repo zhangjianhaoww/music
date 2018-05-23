@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.bilian.dao.OwnerDao">
+
+    <select id="queryOwner" parameterType="tech.bilian.pojo.Owner" resultType="tech.bilian.pojo.Owner">
+        select owner_id, owner_name, owner_address, phone
+
+        from owner
+
+        <where>
+            <if test="owner!=null and owner.ownerId!=null">
+                and owner_id = #{owner.ownerId}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

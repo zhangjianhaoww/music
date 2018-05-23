@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.bilian.dao.AdminDao">
+    <select id="queryAdminByNameAndPwd" resultType="tech.bilian.pojo.Admin">
+        select admin_id, admin_name
+
+        from admin
+
+        where admin_name = #{username}
+
+        and password = #{password}
+    </select>
+
+    <select id="queryAdminByUserId" resultType="tech.bilian.pojo.Admin">
+        select admin_id, admin_name
+
+        from admin
+
+        where admin_id = #{userId}
+    </select>
+
+    <insert id="insertAdmin" parameterType="tech.bilian.pojo.Admin">
+        insert into admin (admin_name, password)
+        values (#{admin.adminName}, #{admin.password})
+    </insert>
+
+    <update id="updateAdmin" parameterType="tech.bilian.pojo.Admin">
+        update admin
+
+        set password = #{newPassword}
+
+        where admin_id = #{admin_id}
+        and admin_name = #{username}
+        and password = #{password}
+    </update>
+</mapper>
