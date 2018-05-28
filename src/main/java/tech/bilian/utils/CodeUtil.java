@@ -13,7 +13,10 @@ public class CodeUtil {
         String verifyCodeExpected = (String) request.getSession()
                 .getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
         String verifyCodeActual = HttpServletRequestUtil.getString(request, "verifyCodeActual");
-        if (verifyCodeActual == null || !verifyCodeActual.equals(verifyCodeExpected)) {
+
+        System.out.println(verifyCodeActual);
+        System.out.println(verifyCodeExpected);
+        if (verifyCodeActual == null || !verifyCodeActual.toLowerCase().equals(verifyCodeExpected.toLowerCase())) {
             return false;
         }
         return true;

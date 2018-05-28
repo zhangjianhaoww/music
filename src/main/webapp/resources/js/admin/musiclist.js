@@ -19,7 +19,9 @@ $(function(){
         success : function(data) {
             if (data.success) {
                 // $.toast('登录成功！');
-                handleList(data.data);
+                //alert(data.user.adminName);
+                handleList(data.data, data.user);
+
                 //if (usertype == 1) {
                 // 若用户在前端展示系统页面则自动链接到前端展示系统首页
                 //window.location.href = '/test/admin/index';
@@ -40,7 +42,7 @@ $(function(){
         }
     });
 
-    function handleList(data) {
+    function handleList(data, user) {
         var html = '';
         data.map(function (item, index) {
             html += '<tr class="gradeX">'
@@ -60,6 +62,8 @@ $(function(){
                 + '</tr>'
         });
         $("#music-wrap").html(html);
+        $("#user_name_head").html('<a href=\"javascript:;\">欢迎你, <span>' + user.adminName + '</span> </a>');
+        $("#user_name").html('<i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>' + user.adminName);
     }
 
 });

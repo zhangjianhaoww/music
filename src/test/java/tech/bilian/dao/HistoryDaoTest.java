@@ -2,6 +2,7 @@ package tech.bilian.dao;
 
 import org.junit.Test;
 import tech.bilian.BaseTest;
+import tech.bilian.dto.PlayCount;
 import tech.bilian.pojo.History;
 
 import javax.annotation.Resource;
@@ -31,7 +32,10 @@ public class HistoryDaoTest extends BaseTest {
         history.setUserId(1L);
 
        List<History> histories =  historyDao.queryHistory(history);
-       System.out.println(histories.size());
+       System.out.println(histories.get(0).getShangjia().getShangjiaName());
+
+//        List<PlayCount> playCounts = historyDao.selectPlayCount();
+//        System.out.println(playCounts.size());
     }
 
 }

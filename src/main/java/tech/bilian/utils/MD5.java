@@ -1,5 +1,9 @@
 package tech.bilian.utils;
 
+import sun.misc.BASE64Decoder;
+
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.security.MessageDigest;
 
 public class MD5 {
@@ -12,7 +16,7 @@ public class MD5 {
      */
     public static final String getMd5(String s) {
         // 16进制数组
-        char hexDigits[] = { '5', '0', '5', '6', '2', '9', '6', '2', '5', 'q', 'b', 'l', 'e', 's', 's', 'y' };
+        char hexDigits[] = {'5', '0', '5', '6', '2', '9', '6', '2', '5', 'q', 'b', 'l', 'e', 's', 's', 'y'};
         try {
             char str[];
             // 将传入的字符串转换成byte数组
@@ -41,5 +45,41 @@ public class MD5 {
 
     public static void main(String[] args) {
         System.out.println(MD5.getMd5("123456"));
+        GenerateImage("3ca8b24999bc86c97a3a8dabd55765d731ac7009acc6ec68b4f5df9524443835", "/home/haru/zhng.jpeg");
+    }
+
+
+    public static boolean GenerateImage(String imgStr, String saveImgFilePath) {
+        //对字节数组字符串进行Base64解码并生成图片
+        if (imgStr == null) //图像数据为空
+            return false;
+
+        OutputStream out = null;
+        try {
+            //Base64解码
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] b = decoder.decodeBuffer(imgStr);
+            for (int i = 0; i < b.length; ++i) {
+                if (b[i] < 0)
+                    b[i] += 256;//调整异常数据
+            }
+            //生成jpeg图片
+            out = new FileOutputStream(saveImgFilePath);
+            out.write(b);
+            out.flush();
+            out.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                if (out != null) {
+                    out.flush();
+                    out.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return false;
+        }
     }
 }

@@ -1,9 +1,15 @@
-2018-05-23 21:24:11 483 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT s.song_id as song_id, s.song_name as song_name, s.owner as owner_id, o.owner_name as owner_name FROM song s, owner o WHERE s.owner = o.owner_id and song_name = ? 
-2018-05-23 21:24:11 543 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 东风破-周杰伦(String)
-2018-05-23 21:24:11 588 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1
-2018-05-23 21:26:16 178 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT s.song_id as song_id, s.song_name as song_name, s.owner as owner_id, o.owner_name as owner_name FROM song s, owner o WHERE s.owner = o.owner_id and song_name = ? 
-2018-05-23 21:26:16 251 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 东风破-周杰伦(String)
-2018-05-23 21:26:16 279 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1
-2018-05-23 21:38:12 399 [main] DEBUG tech.bilian.dao.SongDao.querySong-==>  Preparing: SELECT s.song_id as song_id, s.song_name as song_name, s.owner as owner_id, o.owner_name as owner_name FROM song s, owner o WHERE s.owner = o.owner_id and song_name = ? 
-2018-05-23 21:38:12 456 [main] DEBUG tech.bilian.dao.SongDao.querySong-==> Parameters: 东风破-周杰伦(String)
-2018-05-23 21:38:12 503 [main] DEBUG tech.bilian.dao.SongDao.querySong-<==      Total: 1
+2018-05-28 15:07:28 973 [main] DEBUG tech.bilian.dao.HistoryDao.selectPlayCount-==>  Preparing: select song_name, count(*) from history group by song_name; 
+2018-05-28 15:07:29 044 [main] DEBUG tech.bilian.dao.HistoryDao.selectPlayCount-==> Parameters: 
+2018-05-28 15:07:29 097 [main] DEBUG tech.bilian.dao.HistoryDao.selectPlayCount-<==      Total: 4
+2018-05-28 15:14:12 173 [main] DEBUG tech.bilian.dao.HistoryDao.selectPlayCount-==>  Preparing: select song_name, count(*) from history group by song_name; 
+2018-05-28 15:14:12 243 [main] DEBUG tech.bilian.dao.HistoryDao.selectPlayCount-==> Parameters: 
+2018-05-28 15:14:12 289 [main] DEBUG tech.bilian.dao.HistoryDao.selectPlayCount-<==      Total: 4
+2018-05-28 16:31:28 436 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==>  Preparing: select h.history_id, h.user_id, h.song_id, h.song_name, h.time, h.state, s.shangjia_id, s.shangjia_name, s.master from history h, shangjia s WHERE h.user_id = ? and h.user_id = s.shangjia_id 
+2018-05-28 16:31:28 496 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==> Parameters: 1(Long)
+2018-05-28 16:31:28 554 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-<==      Total: 2
+2018-05-28 16:32:24 972 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==>  Preparing: select h.history_id, h.user_id, h.song_id, h.song_name, h.time, h.state, s.shangjia_id, s.shangjia_name, s.master from history h, shangjia s WHERE h.user_id = ? and h.user_id = s.shangjia_id 
+2018-05-28 16:32:25 023 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==> Parameters: 1(Long)
+2018-05-28 16:32:25 064 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-<==      Total: 2
+2018-05-28 16:34:37 518 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==>  Preparing: select h.history_id, h.user_id, h.song_id, h.song_name, h.time, h.state, s.shangjia_id, s.shangjia_name, s.master from history h, shangjia s WHERE h.user_id = ? and h.user_id = s.shangjia_id 
+2018-05-28 16:34:37 565 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==> Parameters: 1(Long)
+2018-05-28 16:34:37 615 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-<==      Total: 2

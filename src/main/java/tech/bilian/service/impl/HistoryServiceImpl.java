@@ -5,6 +5,7 @@ import tech.bilian.dao.HistoryDao;
 import tech.bilian.dao.PowerDao;
 import tech.bilian.dao.SongDao;
 import tech.bilian.dto.Execution;
+import tech.bilian.dto.PlayCount;
 import tech.bilian.pojo.History;
 import tech.bilian.pojo.Power;
 import tech.bilian.pojo.Song;
@@ -99,5 +100,16 @@ public class HistoryServiceImpl implements HistoryService {
             return new Execution<>(-1, "查询数据库失败");
         }
         return new Execution<>(1, "查询成功", histories);
+    }
+
+
+    @Override
+    public Execution<PlayCount> selectPlayCount() {
+        try{
+            List<PlayCount> playCounts = historyDao.selectPlayCount();
+            return new Execution<>(1, "查询成功", playCounts);
+        }catch (Exception e){
+            return new Execution<>(-2, "查询失败：" + e.getMessage());
+        }
     }
 }

@@ -14,6 +14,10 @@ public class History {
 
     private Integer state;
 
+    private Shangjia shangjia;
+
+    private Song song;
+
 
     private Date time;
 
@@ -63,5 +67,22 @@ public class History {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+
+    public Shangjia getShangjia() {
+        return shangjia;
+    }
+
+    public void setShangjia(Shangjia shangjia) {
+        this.shangjia = shangjia;
+    }
+
+    public Song getSong() {
+        return song;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
     }
 }

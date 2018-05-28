@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import tech.bilian.dto.Execution;
+import tech.bilian.dto.PlayCount;
 import tech.bilian.pojo.*;
 import tech.bilian.service.*;
 import tech.bilian.utils.HttpServletRequestUtil;
@@ -133,7 +134,7 @@ public class Admin {
 
         Long userId = HttpServletRequestUtil.getLong(request, "userId");
         String songName = HttpServletRequestUtil.getString(request, "songName");
-        Integer state = HttpServletRequestUtil.getInt(request, "state");
+        Integer state = HttpServletRequestUtil.getInt(request, "status");
 
         Execution<History> historyExecution;
         History history = new History();
@@ -187,7 +188,17 @@ public class Admin {
                 modelMap.put("success", true);
                 modelMap.put("histories", historyExecution.getModels());
                 return modelMap;
+            case "playcount":
+                Execution<PlayCount> playCountExecution = historyService.selectPlayCount();
+                if (playCountExecution.getState()<0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", playCountExecution.getStateInfo());
+                    return modelMap;
+                }
 
+                modelMap.put("success", true);
+                modelMap.put("playcount", playCountExecution.getModels());
+                return modelMap;
             default:
                 modelMap.put("success", false);
                 modelMap.put("errMsg", "输入信息有误！");
@@ -281,6 +292,7 @@ public class Admin {
     public  Map<String, Object> songs(HttpServletRequest request) {
 
         Map<String, Object> modelMap = new HashMap<>();
+        modelMap.put("user", (tech.bilian.pojo.Admin)request.getSession().getAttribute("user"));
 
         String method = HttpServletRequestUtil.getString(request, "method");
 
@@ -389,5 +401,10 @@ public class Admin {
     @RequestMapping(value = "owner", method = RequestMethod.GET)
     public String owner(){
         return "admin/owner";
+    }
+
+    @RequestMapping(value = "playinformation", method = RequestMethod.GET)
+    public String playInformation(){
+        return "admin/playinformation";
     }
 }

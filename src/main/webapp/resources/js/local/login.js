@@ -37,9 +37,9 @@ $(function() {
             type : "post",
             dataType : 'json',
             data : {
-                userName : userName,
+                adminName : userName,
                 password : password,
-                verifyCodeActual : verifyCodeActual,
+                verifyCodeActual : verifyCodeActual
                 //是否需要做验证码校验
                 //needVerify : needVerify
             },
