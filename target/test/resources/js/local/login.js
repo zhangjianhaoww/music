@@ -16,7 +16,7 @@ $(function() {
         var verifyCodeActual = $('#j_captcha').val();
         // 是否需要验证码验证，默认为false,即不需要
 
-        alert(userName + password );
+        //alert(userName + password );
         //var needVerify = false;
         // 如果登录三次都失败
         // if (loginCount >= 3) {

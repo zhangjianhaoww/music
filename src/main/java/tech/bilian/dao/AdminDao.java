@@ -37,4 +37,8 @@ public interface AdminDao {
      */
     int updateAdmin(@Param("userId") Long userId, @Param("username") String username,
                         @Param("password") String password, @Param("newPassword") String newPassword);
+
+
+
+    Admin queryAdminByUserName(@Param("userName") String userName);
 }

@@ -35,4 +35,13 @@
         and admin_name = #{username}
         and password = #{password}
     </update>
+
+
+    <select id="queryAdminByUserName" resultType="tech.bilian.pojo.Admin">
+        select admin_id, admin_name
+
+        from admin
+
+        where admin_name = #{userName}
+    </select>
 </mapper>

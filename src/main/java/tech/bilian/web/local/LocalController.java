@@ -1,5 +1,6 @@
 package tech.bilian.web.local;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -105,5 +106,71 @@ public class LocalController {
         return modelMap;
     }
 
+    @RequestMapping(value = "usercheck", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> userCheck(HttpServletRequest request) {
+
+        Map<String, Object> modelMap = new HashMap<>();
+
+        String userName = HttpServletRequestUtil.getString(request, "userName");
+
+        if (userName == null || userName.trim().equals("")) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "用户名不能为空");
+            return modelMap;
+        }
+
+        Execution<Admin> adminExecution = adminService.queryAdminByUserName(userName);
+        if (adminExecution.getState() <= 0) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", adminExecution.getStateInfo());
+            return modelMap;
+        }
+
+        modelMap.put("success", true);
+        modelMap.put("data", adminExecution.getStateInfo());
+        return modelMap;
+
+    }
+
+    @RequestMapping(value = "usersignin", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> userSignin(HttpServletRequest request) {
+
+        Map<String, Object> modelMap = new HashMap<>();
+
+        if (!CodeUtil.checkVerifyCode(request)) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "验证码不正确");
+            return modelMap;
+        }
+
+        String name = HttpServletRequestUtil.getString(request, "adminName");
+        String password = HttpServletRequestUtil.getString(request, "password");
+
+        System.out.println(name + "     " + password);
+        if (name == null || name.trim().equals("") || password == null || password.trim().equals("")) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "用户名和密码不能为空");
+            return modelMap;
+        }
+
+        Admin admin = new Admin();
+        admin.setAdminName(name);
+        admin.setPassword(password);
+
+        Execution<Admin> adminExecution = adminService.insertAdmin(admin);
+        if (adminExecution.getState()<= 0){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", adminExecution.getStateInfo());
+            return modelMap;
+        }
+
+        else {
+            modelMap.put("success", true);
+           // modelMap.put("errMsg", adminExecution.getStateInfo());
+            return modelMap;
+        }
+    }
 }
 

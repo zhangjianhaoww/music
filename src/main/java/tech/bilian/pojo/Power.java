@@ -16,6 +16,8 @@ public class Power {
 
     private String  songName;
 
+    private Song song;
+
 //    public Long getPowerId() {
 //        return powerId;
 //    }
@@ -54,5 +56,13 @@ public class Power {
 
     public void setSongName(String songName) {
         this.songName = songName;
+    }
+
+    public Song getSong() {
+        return song;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
     }
 }

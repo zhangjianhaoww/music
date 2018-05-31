@@ -25,6 +25,7 @@
             </if>
             and h.user_id = s.shangjia_id
         </where>
+        order by h.time desc
     </select>
 
 

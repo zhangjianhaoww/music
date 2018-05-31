@@ -67,4 +67,23 @@ public class AdminServiceImpl implements AdminService {
     public Execution<Admin> updateAdmin(Long userId, String userName, String password, String newPassword) {
         return null;
     }
+
+
+    @Override
+    public Execution<Admin> queryAdminByUserName(String userName) {
+        if (userName == null || userName.trim().equals("")){
+            return new Execution<>(-1, "用户名不能为空");
+        }
+
+        try{
+            Admin admin = adminDao.queryAdminByUserName(userName);
+            if (admin == null){
+                return new Execution<>(1, "用户名符合要求");
+
+            }
+            return new Execution<>(0, "用户名已经存在");
+        }catch (Exception e){
+            return new Execution<>(-2, "数据操作失败，请重试");
+        }
+    }
 }

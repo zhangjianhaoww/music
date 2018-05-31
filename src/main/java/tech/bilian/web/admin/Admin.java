@@ -72,7 +72,7 @@ public class Admin {
                 return modelMap;
                 //break;
 
-            case "query":
+            case "search":
                // Power power = new Power();
 
 
@@ -406,5 +406,15 @@ public class Admin {
     @RequestMapping(value = "playinformation", method = RequestMethod.GET)
     public String playInformation(){
         return "admin/playinformation";
+    }
+
+    @RequestMapping(value = "userdetails", method = RequestMethod.GET)
+    public String userdetails(){
+        return "admin/userdetails";
+    }
+
+    @RequestMapping(value = "addbanquanfang", method = RequestMethod.GET)
+    public String addBanquanfang(){
+        return "admin/addbanquanfang";
     }
 }

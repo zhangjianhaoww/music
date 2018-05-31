@@ -15,4 +15,6 @@ public interface AdminService {
 
 
     Execution<Admin> updateAdmin(Long userId, String userName, String password, String newPassword);
+
+    Execution<Admin> queryAdminByUserName(String userName);
 }

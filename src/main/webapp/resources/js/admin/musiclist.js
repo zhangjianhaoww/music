@@ -47,7 +47,7 @@ $(function(){
         data.map(function (item, index) {
             html += '<tr class="gradeX">'
                 + '<td>' + item.songId + '</td>'
-                + '<td> <a href="" >' + item.songName + '</a> </td>'
+                + '<td> <a href="/test/admin/playinformation?songName='+ item.songName +'" >' + item.songName + '</a> </td>'
                 + '<td>' + item.ownerName  + '</td>'
                 + '<td>'
                 + '<div class="tpl-table-black-operation">'

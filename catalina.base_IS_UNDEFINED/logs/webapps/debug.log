@@ -13,3 +13,14 @@
 2018-05-28 16:34:37 518 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==>  Preparing: select h.history_id, h.user_id, h.song_id, h.song_name, h.time, h.state, s.shangjia_id, s.shangjia_name, s.master from history h, shangjia s WHERE h.user_id = ? and h.user_id = s.shangjia_id 
 2018-05-28 16:34:37 565 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-==> Parameters: 1(Long)
 2018-05-28 16:34:37 615 [main] DEBUG tech.bilian.dao.HistoryDao.queryHistory-<==      Total: 2
+2018-05-28 22:39:03 470 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==>  Preparing: select p.song_id song_id, p.user_id user_id, p.song_name song_name, s.owner owner_id, o.owner_name owner_name from power p, song s, owner o and p.song_id = s.song_id and o.owner_id = s.owner 
+2018-05-28 22:39:03 546 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==> Parameters: 
+2018-05-28 22:40:32 059 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==>  Preparing: select p.song_id song_id, p.user_id user_id, p.song_name song_name, s.owner owner_id, o.owner_name owner_name from power p, song s, owner o WHERE p.song_id = s.song_id and o.owner_id = s.owner 
+2018-05-28 22:40:32 122 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==> Parameters: 
+2018-05-28 22:40:32 171 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-<==      Total: 1
+2018-05-28 22:42:53 574 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==>  Preparing: select p.song_id song_id, p.user_id user_id, p.song_name song_name, s.owner owner_id, o.owner_name owner_name from power p, song s, owner o WHERE p.song_id = s.song_id and o.owner_id = s.owner 
+2018-05-28 22:42:53 620 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==> Parameters: 
+2018-05-28 22:42:53 667 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-<==      Total: 1
+2018-05-28 22:49:22 609 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==>  Preparing: select p.song_id song_id, p.user_id user_id, p.song_name song_name, s.owner owner_id, o.owner_name owner_name from power p, song s, owner o WHERE p.song_id = s.song_id and o.owner_id = s.owner 
+2018-05-28 22:49:22 660 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-==> Parameters: 
+2018-05-28 22:49:22 700 [main] DEBUG tech.bilian.dao.PowerDao.queryPower-<==      Total: 1

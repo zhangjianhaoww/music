@@ -18,14 +18,14 @@ public class PowerDaoTest extends BaseTest {
 
     @Test
     public void test(){
-        Power power = new Power();
-        power.setSongId(1l);
-        power.setUserId(1l);
-        power.setTime(new Date());
-
-        int result = powerDao.insertPower(power);
-
-        System.out.println(result);
+//        Power power = new Power();
+//        power.setSongId(1l);
+//        power.setUserId(1l);
+//        power.setTime(new Date());
+//
+//        int result = powerDao.insertPower(power);
+//
+//        System.out.println(result);
 
         List<Power> powers = powerDao.queryPower(null);
 
