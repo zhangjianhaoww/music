@@ -6,7 +6,9 @@ $(function(){
         window.location.href = '/test/admin/index';
         return;
     }
-
+    var html1 = ' <div class="widget-function am-fr" id="song_name">' + songName +
+        '</div>';
+    $("#song_name").html(html1);
     //alert(songName);
     selectPlayCount(url, songName);
 

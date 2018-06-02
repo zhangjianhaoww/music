@@ -339,7 +339,15 @@ public class Admin {
         Map<String, Object> modelMap = new HashMap<>();
 
         String method = HttpServletRequestUtil.getString(request, "method");
+        Long ownerId = HttpServletRequestUtil.getLong(request, "ownerId");
+        String ownerName = HttpServletRequestUtil.getString(request, "ownerName");
+        String ownerAddress = HttpServletRequestUtil.getString(request, "ownerAddress");
+        String phone = HttpServletRequestUtil.getString(request, "phone");
 
+        if (ownerId <=0){
+            ownerId = null;
+        }
+        Owner owner = new Owner(ownerId, ownerName, ownerAddress, phone);
 
         if (method == null || method.trim().equals("")) {
             modelMap.put("success", false);
@@ -349,7 +357,7 @@ public class Admin {
         Execution<Owner> ownerExecution;
 
         switch (method) {
-            case "search":
+            case "searchall":
                 ownerExecution = ownerService.queryOwner(null);
                 if (ownerExecution.getState() <= 0){
                     modelMap.put("success", false);
@@ -360,6 +368,31 @@ public class Admin {
                 modelMap.put("data", ownerExecution.getModels());
                 return modelMap;
 
+
+            case "searchbyid":
+                Owner owner1 = new Owner();
+                owner1.setOwnerId(ownerId);
+                ownerExecution = ownerService.queryOwner(owner1);
+                if (ownerExecution.getState() <= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", ownerExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", ownerExecution.getModels().get(0));
+                return modelMap;
+
+            //查询数据是否存在
+            case "query":
+                ownerExecution = ownerService.selectOwner(owner);
+                if (ownerExecution.getState()<= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", ownerExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                //modelMap.put("data", ownerExecution.getModels());
+                return modelMap;
 
 
             default:
@@ -376,9 +409,77 @@ public class Admin {
 
 
 
+    @RequestMapping(value = "owners", method = RequestMethod.POST)
+    @ResponseBody
+    public  Map<String, Object> addOwner(HttpServletRequest request) {
+
+        Map<String, Object> modelMap = new HashMap<>();
+
+        String method = HttpServletRequestUtil.getString(request, "method");
+        if (method == null || method.trim().equals("")) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "输入数据有误");
+            return modelMap;
+        }
+        Long ownerId = HttpServletRequestUtil.getLong(request, "ownerId");
+        String ownerName = HttpServletRequestUtil.getString(request, "ownerName");
+        String ownerAddress = HttpServletRequestUtil.getString(request, "ownerAddress");
+        String phone = HttpServletRequestUtil.getString(request, "phone");
 
 
+        if (ownerId <= 0) {
+            ownerId = null;
+        }
+        Owner owner = new Owner(ownerId, ownerName, ownerAddress, phone);
+        Execution<Owner> ownerExecution;
 
+        if (ownerName==null || ownerAddress==null || phone==null){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "请输入完整数据");
+            return modelMap;
+        }
+
+        switch (method) {
+            case "add":
+                ownerExecution = ownerService.insertOwner(owner);
+                if (ownerExecution.getState()<= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", ownerExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", ownerExecution.getStateInfo());
+                return modelMap;
+
+
+            case "update":
+                if (ownerId == null){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", "请输入完整数据");
+                    return modelMap;
+                }
+                ownerExecution = ownerService.updateOwner(owner);
+                if (ownerExecution.getState()<= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", ownerExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", ownerExecution.getStateInfo());
+                return modelMap;
+
+            default:
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "输入数据有误");
+
+                return modelMap;
+
+        }
+
+        //ownerExecution = ownerService.selectOwner(owner);
+
+
+    }
 
 
 
@@ -416,5 +517,10 @@ public class Admin {
     @RequestMapping(value = "addbanquanfang", method = RequestMethod.GET)
     public String addBanquanfang(){
         return "admin/addbanquanfang";
+    }
+
+    @RequestMapping(value = "addmusic", method = RequestMethod.GET)
+    public String addMusic(){
+        return "admin/addmusic";
     }
 }

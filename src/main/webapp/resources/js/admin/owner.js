@@ -9,7 +9,7 @@ $(function(){
         type : "get",
         dataType : 'json',
         data : {
-            method : "search"
+            method : "searchall"
             // password : password,
             //verifyCodeActual : verifyCodeActual,
             ////是否需要做验证码校验
@@ -49,7 +49,7 @@ $(function(){
                 + '<td>' + item.phone + '</td>'
                 + '<td>'
                 + '<div class="tpl-table-black-operation">'
-                + '<a href="javascript:;">'
+                + '<a href="/test/admin/addbanquanfang?ownerId='+ item.ownerId +'">'
                 + '<i class="am-icon-pencil"></i> 编辑'
                 + '</a>'
                 + '<a href="javascript:;" class="tpl-table-black-operation-del">'

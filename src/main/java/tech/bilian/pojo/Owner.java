@@ -13,6 +13,16 @@ public class Owner {
 
     private String phone;
 
+    public Owner() {
+    }
+
+    public Owner(Long ownerId, String ownerName, String ownerAddress, String phone) {
+        this.ownerId = ownerId;
+        this.ownerName = ownerName;
+        this.ownerAddress = ownerAddress;
+        this.phone = phone;
+    }
+
     public Long getOwnerId() {
         return ownerId;
     }
@@ -43,5 +53,9 @@ public class Owner {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    boolean isFull(){
+        return (ownerName!=null && ownerAddress!=null && phone!=null);
     }
 }

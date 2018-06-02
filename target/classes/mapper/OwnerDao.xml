@@ -13,8 +13,28 @@
             <if test="owner!=null and owner.ownerId!=null">
                 and owner_id = #{owner.ownerId}
             </if>
+            <if test="owner!=null and owner.ownerName!=null">
+                and owner_name = #{owner.ownerName}
+            </if>
+            <if test="owner!=null and owner.ownerAddress!=null">
+                and owner_address = #{owner.ownerAddress}
+            </if>
+            <if test="owner!=null and owner.phone!=null">
+                and phone = #{owner.phone}
+            </if>
         </where>
     </select>
 
+
+    <insert id="insertOwner" parameterType="tech.bilian.pojo.Owner">
+        insert into owner (owner_name, owner_address, phone)
+        values (#{owner.ownerName}, #{owner.ownerAddress}, #{owner.phone})
+    </insert>
+
+    <update id="updateOwner" parameterType="tech.bilian.pojo.Owner">
+        update owner
+        set owner_name=#{owner.ownerName}, owner_address=#{owner.ownerAddress}, phone=#{owner.phone}
+        where owner_id = #{owner.ownerId}
+    </update>
 
 </mapper>
