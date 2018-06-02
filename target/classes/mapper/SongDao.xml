@@ -25,7 +25,7 @@
     </select>
 
     <insert id="insertSong" parameterType="tech.bilian.dao.SongDao" useGeneratedKeys="true" keyProperty="songId" keyColumn="song_id">
-        INSERT INTO song ( song_name, ownerId)
+        INSERT INTO song ( song_name, owner)
 
         values (#{song.songName}, #{song.ownerId})
     </insert>
@@ -45,5 +45,11 @@
            </if>
        </where>
     </delete>
+
+    <update id="updateSong" parameterType="tech.bilian.dao.SongDao">
+        update song
+        set song_name = #{song.songName}, owner = #{song.ownerId}
+        where song_id = #{song.songId}
+    </update>
 
 </mapper>

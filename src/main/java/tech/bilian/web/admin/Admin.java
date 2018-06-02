@@ -295,18 +295,28 @@ public class Admin {
         modelMap.put("user", (tech.bilian.pojo.Admin)request.getSession().getAttribute("user"));
 
         String method = HttpServletRequestUtil.getString(request, "method");
-
-
-
-
-
-
-
         if (method == null || method.trim().equals("")) {
             modelMap.put("success", false);
             modelMap.put("errMsg", "输入数据有误");
             return modelMap;
         }
+
+        String songName = HttpServletRequestUtil.getString(request, "songName");
+        Long ownerId = HttpServletRequestUtil.getLong(request, "ownerId");
+        Long songId = HttpServletRequestUtil.getLong(request, "songId");
+
+        if (ownerId < 1){
+            ownerId = null;
+        }
+        if (songId < 1){
+            songId = null;
+        }
+        Song song = new Song();
+        song.setSongName(songName);
+        song.setOwnerId(ownerId);
+        song.setSongId(songId);
+
+
 
         switch (method){
             case "search":
@@ -320,6 +330,23 @@ public class Admin {
                 modelMap.put("data", songExecution.getModels());
                 return modelMap;
 
+            case "searchbyid":
+                if (songId == null || songId < 1){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", "输入数据有误");
+                    return modelMap;
+                }
+                Song song1 = new Song();
+                song1.setSongId(songId);
+                songExecution = songService.querySong(song);
+                if (songExecution.getState() <= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", songExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", songExecution.getModels().get(0));
+                return modelMap;
 
 
             default:
@@ -330,6 +357,92 @@ public class Admin {
         }
 
     }
+
+
+    @RequestMapping(value = "songs", method = RequestMethod.POST)
+    @ResponseBody
+    public  Map<String, Object> addSongs(HttpServletRequest request) {
+
+        Map<String, Object> modelMap = new HashMap<>();
+        String method = HttpServletRequestUtil.getString(request, "method");
+        if (method == null || method.trim().equals("")) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "输入数据有误");
+            return modelMap;
+        }
+
+        String songName = HttpServletRequestUtil.getString(request, "songName");
+        Long ownerId = HttpServletRequestUtil.getLong(request, "ownerId");
+        Long songId = HttpServletRequestUtil.getLong(request, "songId");
+
+        if (ownerId < 1){
+            ownerId = null;
+        }
+        if (songId < 1){
+            songId = null;
+        }
+        Song song = new Song();
+        song.setSongName(songName);
+        song.setOwnerId(ownerId);
+        song.setSongId(songId);
+
+        Execution<Song> songExecution;
+
+        switch (method){
+            case "add":
+                if (songName == null || ownerId == null){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", "输入数据不完整");
+                    return modelMap;
+                }
+                songExecution = songService.addSong(song);
+                if (songExecution.getState() <= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", songExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", songExecution.getStateInfo());
+                return modelMap;
+
+
+            case "update":
+                if (songName == null || ownerId == null || songId == null){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", "输入数据不完整");
+                    return modelMap;
+                }
+                songExecution = songService.updateSong(song);
+                if (songExecution.getState() <= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", songExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", songExecution.getStateInfo());
+                return modelMap;
+
+            default:
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "输入数据有误");
+
+                return modelMap;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @RequestMapping(value = "owners", method = RequestMethod.GET)

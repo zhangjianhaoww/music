@@ -23,4 +23,7 @@ public interface SongDao {
 
 
     int deleteSong(String songName);
+
+
+    int updateSong(@Param("song")Song song);
 }

@@ -122,6 +122,7 @@ $(function(){
                         alert(data.errMsg);
                     }
 
+                    window.location.href = '/test/admin/addbanquanfang';
 
                 }
             });

@@ -51,7 +51,7 @@ $(function(){
                 + '<td>' + item.ownerName  + '</td>'
                 + '<td>'
                 + '<div class="tpl-table-black-operation">'
-                + '<a href="javascript:;">'
+                + '<a href="/test/admin/addmusic?songId='+ item.songId +'">'
                 + '<i class="am-icon-pencil"></i> 编辑'
                 + '</a>'
                 + '<a href="javascript:;" class="tpl-table-black-operation-del">'
