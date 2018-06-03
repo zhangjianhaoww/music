@@ -18,4 +18,7 @@ public interface ShangjiaService {
      * @return
      */
     Execution<Shangjia> queryShangjia(Shangjia shangjia);
+
+
+    Execution<Shangjia> updateShangjia(Shangjia shangjia);
 }

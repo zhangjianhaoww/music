@@ -1,6 +1,10 @@
 $(function(){
 
-var url = '/test/admin/shangjias'
+var url = '/test/admin/shangjias';
+
+var method = getQueryString("method");
+var shangjiaId = getQueryString("shangjiaId");
+var name = getQueryString("name");
 
     $.ajax({
         url : url,
@@ -39,6 +43,18 @@ var url = '/test/admin/shangjias'
         }
     });
 
+
+
+
+    if (method == "delect" && shangjiaId > 0 && name!= null && name.trim() != ""){
+        if (confirm("确定删除" + name + "?")){
+            alert("删除成功");
+        }
+    }
+
+
+
+
     function handleList(data) {
         var html = '';
         data.map(function (item, index) {
@@ -48,10 +64,10 @@ var url = '/test/admin/shangjias'
                 + '<td>无</td>'
                 + '<td>'
                 + '<div class="tpl-table-black-operation">'
-                + '<a href="javascript:;">'
+                + '<a href="/test/admin/addshangjia?shangjiaId=' + item.shangjiaId +'">'
                 + '<i class="am-icon-pencil"></i> 编辑'
                 + '</a>'
-                + '<a href="javascript:;" class="tpl-table-black-operation-del">'
+                + '<a href="/test/admin/shangjia?method=delect&shangjiaId='+ item.shangjiaId +'&name='+ item.shangjiaName +'" class="tpl-table-black-operation-del" >'
                 + '<i class="am-icon-trash"></i> 删除'
                 + '</a>'
                 + '</div>'

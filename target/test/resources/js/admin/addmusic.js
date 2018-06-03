@@ -9,7 +9,7 @@ $(function(){
     } else{
         method = 'add';
     }
-     alert(method);
+     //alert(method);
 
     if (method == 'update'){
         getMessage();
@@ -75,7 +75,7 @@ $(function(){
             return;
         }
         else if (!isCan){
-            alert("请输入正确信息");
+            alert("请更新信息或输入正确信息");
             return;
         }
         else{

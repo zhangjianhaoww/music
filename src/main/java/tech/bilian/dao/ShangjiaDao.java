@@ -11,5 +11,7 @@ public interface ShangjiaDao {
 
     int insertShangjia(@Param("shangjia")Shangjia shangjia);
 
+    int updateShangjia(@Param("shangjia")Shangjia shangjia);
+
 
 }

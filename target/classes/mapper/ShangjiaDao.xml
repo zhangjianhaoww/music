@@ -27,4 +27,13 @@
 
         values (#{shangjia.master}, #{shangjia.shangjiaName})
     </insert>
+
+
+    <update id="updateShangjia" parameterType="tech.bilian.pojo.Shangjia">
+        update shangjia
+        set master = #{shangjia.master}, shangjia_name = #{shangjia.shangjiaName}
+        where shangjia_id = #{shangjia.shangjiaId}
+    </update>
+
+
 </mapper>

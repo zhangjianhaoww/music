@@ -51,4 +51,23 @@ public class ShangjiaServiceImpl implements ShangjiaService {
         }
 
     }
+
+
+    @Override
+    public Execution<Shangjia> updateShangjia(Shangjia shangjia) {
+        if (shangjia.getShangjiaId() == null || shangjia.getShangjiaName() == null ||
+                shangjia.getShangjiaName().trim()=="" || shangjia.getMaster() == null) {
+            return new Execution<>(-2, "请输入完整数据");
+        }
+        try{
+            int result1 = shangjiaDao.updateShangjia(shangjia);
+            if (result1<1){
+                return new Execution<>(-2, "数据库操作失败");
+            }else
+                return new Execution<>(1, "更新成功");
+        }catch (Exception e){
+            return new Execution<>(-2, "数据库操作失败");
+            }
+    }
+
 }

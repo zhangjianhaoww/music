@@ -287,6 +287,107 @@ public class Admin {
     }
 
 
+
+    @RequestMapping(value = "shangjias", method = RequestMethod.POST)
+    @ResponseBody
+    public  Map<String, Object> addshangjia(HttpServletRequest request) {
+
+        Map<String, Object> modelMap = new HashMap<>();
+
+        String method = HttpServletRequestUtil.getString(request, "method");
+        Long master = HttpServletRequestUtil.getLong(request, "master");
+        String name = HttpServletRequestUtil.getString(request, "name");
+        Long shangjiaId = HttpServletRequestUtil.getLong(request, "shangjiaId");
+
+
+        Execution<Shangjia> shangjiaExecution;
+
+        if (master < 0){
+           master = null;
+        }
+
+        if (shangjiaId < 1){
+            shangjiaId = null;
+        }
+
+        if (method == null || method.trim().equals("")) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "输入数据有误");
+            return modelMap;
+        }
+        Shangjia shangjia = new Shangjia();
+
+            shangjia.setShangjiaName(name);
+
+
+            shangjia.setMaster(master);
+
+
+            shangjia.setShangjiaId(shangjiaId);
+
+
+        switch (method){
+            case "add":
+                if (master == null || master <0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", "请输入完整数据");
+                    return modelMap;
+                }
+                if (name == null || name.trim().equals("")){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", "请输入完整数据");
+                    return modelMap;
+                }
+               shangjiaExecution = shangjiaService.insertShangjia(shangjia);
+                if (shangjiaExecution.getState() <= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", shangjiaExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", shangjiaExecution.getStateInfo());
+                return modelMap;
+
+            case "update":
+                if (shangjiaId==null || shangjiaId <1 || name == null || name.trim().equals("")
+                        || master == null || master <0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", "请输入完整数据");
+                    return modelMap;
+                }
+                shangjiaExecution = shangjiaService.updateShangjia(shangjia);
+                if (shangjiaExecution.getState() <= 0){
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", shangjiaExecution.getStateInfo());
+                    return modelMap;
+                }
+                modelMap.put("success", true);
+                modelMap.put("data", shangjiaExecution.getStateInfo());
+                return modelMap;
+
+            default:
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "输入数据有误");
+
+                return modelMap;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @RequestMapping(value = "songs", method = RequestMethod.GET)
     @ResponseBody
     public  Map<String, Object> songs(HttpServletRequest request) {
@@ -635,5 +736,12 @@ public class Admin {
     @RequestMapping(value = "addmusic", method = RequestMethod.GET)
     public String addMusic(){
         return "admin/addmusic";
+    }
+
+
+
+    @RequestMapping(value = "addshangjia", method = RequestMethod.GET)
+    public String addShangjia(){
+        return "admin/addshangjia";
     }
 }
