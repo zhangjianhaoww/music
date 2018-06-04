@@ -2,7 +2,7 @@ $(function(){
 
 var url = '/test/admin/shangjias';
 
-    var method = getQueryString("method");
+var method = getQueryString("method");
 var shangjiaId = getQueryString("shangjiaId");
 var name = getQueryString("name");
 

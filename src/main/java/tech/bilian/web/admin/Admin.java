@@ -135,6 +135,7 @@ public class Admin {
         Long userId = HttpServletRequestUtil.getLong(request, "userId");
         String songName = HttpServletRequestUtil.getString(request, "songName");
         Integer state = HttpServletRequestUtil.getInt(request, "status");
+        String shangjiaName = HttpServletRequestUtil.getString(request, "shangjiaName");
 
         Execution<History> historyExecution;
         History history = new History();
